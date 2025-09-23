@@ -1,0 +1,20 @@
+﻿# macOS
+.DS_Store
+# Windows
+Thumbs.db
+*.lnk
+# Logs
+logs
+*.log
+# Env
+.env
+.env.*
+# Dependencies
+node_modules/
+# Build
+dist/
+build/
+# Editors.vscode/.idea/
+# System
+~$*
+

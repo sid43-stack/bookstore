@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <!-- Link to external CSS -->
+    <link href="payment.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h3>Payment Details</h3>
+            <div class="book-details" id="bookDetails">
+                <!-- Book details will appear here dynamically -->
+            </div>
+            <form id="paymentForm">
+                <div class="mb-3">
+                    <label for="cardName" class="form-label">Name on Card</label>
+                    <input type="text" class="form-control" id="cardName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label">Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" maxlength="16" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                        <input type="text" class="form-control" id="expiryDate" maxlength="5" required placeholder="MM/YY">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="password" class="form-control" id="cvv" maxlength="3" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" class="form-control" id="amount" required placeholder="Enter amount">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include external JS -->
+    <script src="script.js"></script>
+    <script>
+        // Add JavaScript to dynamically show the book details
+        document.addEventListener("DOMContentLoaded", function () {
+            const bookId = new URLSearchParams(window.location.search).get("book");
+            const bookDetails = {
+                1: { title: "The Saint Of Bright Doors", price: "₹4,855" },
+                2: { title: "Small Rain", price: "₹1,868" },
+                3: { title: "Moon Of The Turning Leaves: A Novel", price: "₹1,742" }
+            };
+
+            const book = bookDetails[bookId];
+            if (book) {
+                const bookDetailsDiv = document.getElementById("bookDetails");
+                bookDetailsDiv.innerHTML = `
+                    <p><strong>Book Title:</strong> ${book.title}</p>
+                    <p><strong>Price:</strong> ${book.price}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

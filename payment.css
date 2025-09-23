@@ -1,0 +1,32 @@
+/* payment.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.book-details {
+    margin-bottom: 30px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/* Add Bootstrap styling overrides (if needed) */
+.form-control:focus {
+    border-color: #ff4b5c;
+    box-shadow: 0 0 5px rgba(255, 75, 92, 0.5);
+}
